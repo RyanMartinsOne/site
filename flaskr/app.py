@@ -1,11 +1,11 @@
-from flask import Flask, render_template, url_for
+from flask import Flask
+from routes.home import home_route
+from routes.library import library_route
 
 app = Flask(__name__)
 
-@app.route("/")
-def hello_world():
-    return render_template('library/index.html')
+app.register_blueprint(home_route)
+app.register_blueprint(library_route, url_prefix='/library')
 
-@app.route("/about")
-def about():
-    return "<p>About Page</p>"
+if __name__ == "__main__":
+    app.run(debug=True)
