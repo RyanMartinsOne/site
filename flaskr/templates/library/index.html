@@ -19,23 +19,32 @@
                    name="title"
                    id="title"
                    placeholder="Digite o título do livro"
-                   required>
+                   required> <br>
             <label for="author">Autor</label>
             <input type="text"
                    name="author"
                    id="author"
                    placeholder="Digite o autor do livro"
-                   required>
+                   required> <br>
             <label for="genre">Genêro</label>
             <input type="text"
                    name="genre"
                    id="genre"
                    placeholder="Digite o gênero do livro"
-                   required>
+                   required> <br>
             <input type="submit" value="Enviar">
         </form>
     </div>
-        {{ Livros }}
+        <ul class="book" style="list-style-type: none">
+        {% for book in books %}
+            <li>
+                Título: {{ book.title }} <br>
+                Autor: {{ book.author }} <br>
+                Gênero: {{ book.genre }} <br>
+            </li>
+        {% endfor %}
+        </ul>
+
     </div>
 </body>
 </html>
